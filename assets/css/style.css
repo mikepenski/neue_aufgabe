@@ -1,0 +1,370 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Ubuntu', sans-serif;
+    height: 100vh;
+    background: #1f2024;
+    color: #a9abb0;
+    font-size: 16px;
+    padding-top: 85px;
+}
+
+/***
+*** Base
+***/
+
+a{
+    text-decoration: none;
+    color: #a9abb0;
+}
+
+ul{
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+h1{
+    font-size: 4rem;
+    color: #a9abb0;
+}
+
+h1:hover{
+    color: #fff;
+}
+
+/***
+*** header
+***/
+
+.logo{
+    font-family: 'Monoton', cursive;
+    font-size: 2rem;
+    margin-right: 2rem;
+}
+
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1em 2em;
+    align-items: center;
+    z-index: 9999;
+    background: #1f2024;
+    border-bottom: 2px solid #a9abb0;
+}
+
+header a{
+    text-transform: uppercase;
+}
+
+header nav ul li{
+    display: inline-block;
+    padding: 0 25px;
+}
+
+header nav ul li:hover a{
+    color: #fff;
+}
+
+header .col{
+    display: flex;
+    align-items: center;
+}
+
+/***
+*** Main
+***/
+
+main, main > div.container{
+    height: 100%;
+}
+
+.container{
+    max-width: 1700px;
+    margin: 0 auto;
+}
+
+.button_container{
+    display: none;
+}
+
+main .content{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+}
+
+.left{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.3333333333%;
+    flex: 0 0 33.3333333333%;
+    max-width: 33.3333333333%;
+}
+
+
+.left a{
+    font-size: 1.15rem;
+    display: block;
+    margin-top: 8rem;
+    color: #e89e66;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.left a:before{
+    content: '';
+    height: 4px;
+    background: #e89e66;
+    width: 100px;
+    display: inline-block;
+    margin-right: 25px;
+    vertical-align: middle;
+}
+
+.left a:hover{
+    font-size: 1.15rem;
+    display: block;
+    margin-top: 8rem;
+    color: #e89e66;
+    text-transform: uppercase;
+}
+
+.left a::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: #fff;
+    transform: translateY(-50%);
+   
+    transition: width .5s ease;
+}
+
+.left a:hover::after {
+    width: 100px;
+    right: 0;
+}
+
+.left a span{
+    position: relative;
+}
+
+.left a span::before {
+    position: absolute;
+    content: 'Shop all';
+    top: 0;
+    left: 0;
+    width: 0;
+    color: #fff;
+    text-decoration: underline;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: width .5s ease;
+}
+
+.left a:hover span::before {
+    width: 100%;
+    right: 0;
+}
+
+
+.right{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 66.6666666667%;
+    flex: 0 0 66.6666666667%;
+    max-width: 66.6666666667%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.right .outer{
+    width: 30%;
+    margin-right: 3%;
+    display: inline-block;
+    min-height: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.right .outer a::after{
+    content:'';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0, .5);
+}
+
+.right .outer a{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+
+.right .outer span{
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    z-index: 11;
+}
+
+.right div img{
+    position: absolute;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.social li{
+    display: inline-block;
+    margin-right: 25px;
+}
+
+.social li i{
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 1100px){
+
+    header nav{
+        display: none;
+    }
+
+    .button_container {
+        position: relative;
+        height: 27px;
+        width: 35px;
+        cursor: pointer;
+        z-index: 100;
+        -webkit-transition: opacity .25s ease;
+        transition: opacity .25s ease;
+        display: inline-block;
+    }
+
+    .button_container span {
+        background: #fff;
+        border: none;
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transition: all .35s ease;
+        transition: all .35s ease;
+        cursor: pointer;
+    }
+
+    .button_container span:nth-of-type(2) {
+        top: 11px;
+        width: 80% !important;
+        right: 0;
+        left: auto;
+    }
+
+    .button_container span:nth-of-type(3) {
+        top: 22px;
+    }
+
+    .button_container.active .top {
+        -webkit-transform: translateY(11px) translateX(0) rotate(45deg);
+        transform: translateY(11px) translateX(0) rotate(45deg);
+        background: #fff;
+    }
+
+    .button_container.active .middle {
+        opacity: 0;
+        background: #fff;
+    }
+
+    .button_container.active .bottom {
+        -webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
+        transform: translateY(-11px) translateX(0) rotate(-45deg);
+        background: #fff;
+    }
+
+    
+    .content{
+        justify-content: center !important;
+    }
+
+    .left{
+        padding: 50px 0;
+    }
+
+    .left, .right{
+        max-width: 100%;
+        display: block;
+        flex: unset;
+    }
+
+    .right .outer{
+        width: 30%;
+        display: inline-block;
+        min-height: unset;
+    }
+
+    .right div img{
+        position: relative;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    .main-nav{
+        display: none;
+    }
+
+    .left, .right{
+        max-width: 100%;
+        display: block;
+    }
+
+    .right div{
+        width: 100%;
+        display: block;
+        min-height: unset;
+    }
+
+    .right div img{
+        position: relative;
+        -o-object-fit: cover;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+ 
+
+    .right div img{
+        padding-right: 0;
+     }
+
+}
+
+/*
+.right img{
+   width: 33%;
+   display: inline-block;
+}
